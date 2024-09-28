@@ -1,5 +1,6 @@
 import { signIn, signOut } from "auth"
 import { Button } from "./ui/button"
+import { Github } from "lucide-react"
 
 export function SignIn({
   provider,
@@ -12,7 +13,10 @@ export function SignIn({
         await signIn(provider)
       }}
     >
-      <Button {...props}>Sign In</Button>
+      <Button {...props} className="flex items-center gap-2">
+        <Github className="w-4 h-4" />
+        Sign In
+      </Button>
     </form>
   )
 }

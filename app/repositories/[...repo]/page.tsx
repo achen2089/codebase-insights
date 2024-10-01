@@ -3,10 +3,11 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useSession } from 'next-auth/react'
-import { Github, RefreshCw, AlertCircle } from 'lucide-react'
+import { Github, RefreshCw, AlertCircle, ExternalLink } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import InsightReport from "@/components/insight-report"
 import ReportSkeleton from "@/components/report-skeleton"
+import Link from 'next/link'
 
 export default function RepoPage({ params }: { params: { repo: string[] } }) {
   const router = useRouter()
@@ -123,7 +124,10 @@ export default function RepoPage({ params }: { params: { repo: string[] } }) {
     <div className="flex flex-col gap-6">
       <h1 className="text-3xl font-bold flex items-center">
         <Github className="w-8 h-8 mr-2" />
-        {repoFullName}
+        <Link href={`https://github.com/${repoFullName}`} target="_blank" rel="noopener noreferrer" className="hover:underline flex items-center">
+          {repoFullName}
+          <ExternalLink className="w-4 h-4 ml-2" />
+        </Link>
       </h1>
       {indexingStatus === 'indexing' && (
         <div className="flex flex-col items-center justify-center space-y-4">

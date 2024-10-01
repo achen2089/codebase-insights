@@ -2,6 +2,10 @@
 
 Codebase Insights is a tool designed to provide comprehensive analysis and insights into your GitHub repositories. 
 
+## Demo
+
+[![Codebase Insights Demo](https://img.youtube.com/vi/j_Pu2lx6NiA/0.jpg)](https://www.youtube.com/watch?v=j_Pu2lx6NiA)
+
 ## Built with
 
 - Next.js

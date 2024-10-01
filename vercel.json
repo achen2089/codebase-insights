@@ -1,0 +1,7 @@
+{
+    "functions": {
+      "api/greptile/*.ts": {
+        "maxDuration": 300
+      }
+    }
+  }

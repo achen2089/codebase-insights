@@ -49,11 +49,9 @@ export async function getInsights(repository: string): Promise<any> {
         "Code Health Metrics: Display various metrics including code quality, test coverage, potential security vulnerabilities (provide at least 5), cyclomatic complexity, code duplication, maintainability index, and code churn. Please provide numbers and percentages where possible"
     ];
 
-    let combinedInsights = '';
-    for (const prompt of insightPrompts) {
-        const insight = await queryRepository(repository, prompt);
-        combinedInsights += insight.message + '\n\n';
-    }
+    const insights = await Promise.all(insightPrompts.map(prompt => queryRepository(repository, prompt)));
+
+    const combinedInsights = insights.map(insight => insight.message).join('\n\n');
 
     return makeGreptileRequest(`${API_BASE_URL}/query`, 'POST', {
         messages: [{ content: combinedInsights, role: "user" }],

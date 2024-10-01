@@ -84,22 +84,26 @@ export default function RepoPage({ params }: { params: { repo: string[] } }) {
   }
 
   const getInsights = async () => {
-    setIsLoading(true);
-    setInsights(null); // Reset insights to show skeleton
+    setIsLoading(true)
+    setInsights(null) // Reset insights to show skeleton
     try {
       const response = await fetch('/api/greptile', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ action: 'insights', repository: repoFullName })
-      });
-      if (!response.ok) throw new Error('Failed to start insights job');
-      
+      })
+      if (!response.ok) throw new Error('Failed to get insights')
+      const data = await response.json()
+      setInsights(data)
+      // Cache the insights in localStorage
+      localStorage.setItem(`insights_${repoFullName}`, JSON.stringify(data))
     } catch (error) {
-      console.error('Error getting insights:', error);
-      setInsights(null);
-      setIsLoading(false);
+      console.error('Error getting insights:', error)
+      setInsights(null)
+    } finally {
+      setIsLoading(false)
     }
-  };
+  }
 
   const updateInsights = async () => {
     // Clear the cached insights

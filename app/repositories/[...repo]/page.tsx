@@ -93,24 +93,7 @@ export default function RepoPage({ params }: { params: { repo: string[] } }) {
         body: JSON.stringify({ action: 'insights', repository: repoFullName })
       });
       if (!response.ok) throw new Error('Failed to start insights job');
-      const { jobId } = await response.json();
       
-      // Poll for job status
-      const intervalId = setInterval(async () => {
-        const statusResponse = await fetch(`/api/greptile?jobId=${jobId}`);
-        if (statusResponse.ok) {
-          const { status, data } = await statusResponse.json();
-          if (status === 'completed') {
-            clearInterval(intervalId);
-            setInsights(data);
-            localStorage.setItem(`insights_${repoFullName}`, JSON.stringify(data));
-            setIsLoading(false);
-          } else if (status === 'error') {
-            clearInterval(intervalId);
-            throw new Error('Failed to process insights');
-          }
-        }
-      }, 5000); // Check every 5 seconds
     } catch (error) {
       console.error('Error getting insights:', error);
       setInsights(null);

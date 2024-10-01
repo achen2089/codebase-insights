@@ -44,12 +44,6 @@ export async function GET(req: Request) {
   return handleProgress(repository)
 }
 
-async function handleJobStatus(jobId: string) {
-    // In a real implementation, you would check the status of the job in a database
-    // For now, we'll just return a mock status
-    return Response.json({ status: "processing" });
-}
-
 async function handleIndexing(repository: string) {
   try {
     const result = await submitRepositoryForIndexing(repository)

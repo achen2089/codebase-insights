@@ -1,6 +1,6 @@
 # Codebase Insights 
 
-Codebase Insights is a powerful tool designed to provide comprehensive analysis and insights into your GitHub repositories. 
+Codebase Insights is a tool designed to provide comprehensive analysis and insights into your GitHub repositories. 
 
 ## Built with
 

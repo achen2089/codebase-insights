@@ -1,6 +1,6 @@
 {
   "private": true,
-  "description": "An example project for NextAuth.js with Next.js",
+  "description": "Get insights into your GitHub repositories",
   "repository": "https://github.com/nextauthjs/next-auth-example.git",
   "bugs": {
     "url": "https://github.com/nextauthjs/next-auth/issues"

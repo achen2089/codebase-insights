@@ -1,6 +1,6 @@
 # Codebase Insights 
 
-Codebase Insights is a tool designed to provide comprehensive analysis and insights into your GitHub repositories. 
+Codebase Insights is a tool designed to provide comprehensive analysis and insights into your Github repositories. 
 
 ## Demo
 
@@ -41,11 +41,11 @@ To get started with Codebase Insights, follow these steps:
    npm run dev
    ```
 
-5. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+5. Open [http://localhost:3000](http://localhost:3000) with your browser to start using the application.
 
 ## Features
 
-- **Code Structure Analysis**: Visualize and understand the overall structure of your codebase.
+- **Code Structure Analysis**: Understand the overall structure of your codebase.
 - **Complexity Assessment**: Identify complex areas of your code and get refactoring suggestions.
 - **Documentation Coverage**: Evaluate which parts of your codebase are well-documented and which need attention.
 - **Dependency Tracking**: Monitor and manage both external and internal dependencies.

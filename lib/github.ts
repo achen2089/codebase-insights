@@ -6,7 +6,7 @@ export async function getUserRepositories() {
     throw new Error("No access token found")
   }
 
-  const response = await fetch('https://api.github.com/user/repos?sort=updated&per_page=100', {
+  const response = await fetch('https://api.github.com/user/repos?sort=updated&per_page=100&affiliation=owner', {
     headers: {
       Authorization: `Bearer ${session.accessToken}`,
       Accept: 'application/vnd.github.v3+json'

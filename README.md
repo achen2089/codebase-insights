@@ -64,3 +64,5 @@ To get started with Codebase Insights, follow these steps:
 - Make calling github api repos with pagination
 - Fix some issues and user experience with initial repo indexing 
 - Add more robust insights into the report
+- Optimize the report generation and report page load times
+- Deploy application
